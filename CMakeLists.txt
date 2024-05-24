@@ -34,7 +34,10 @@ endif ()
 include(cmake/CPM.cmake)
 
 CPMAddPackage("gh:fmtlib/fmt#10.2.1")
-list(APPEND LIBRARIES fmt)
+list(APPEND LIBRARIES fmt::fmt)
+
+CPMAddPackage("gh:tcbrindle/flux#main")
+list(APPEND LIBRARIES flux::flux)
 
 # include directories and source files
 include_directories(include)
