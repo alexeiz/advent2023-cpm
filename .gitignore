@@ -1,0 +1,9 @@
+# vim
+.*.swp
+.swp
+
+build/
+build-rel/
+.vscode/
+.gdb_history
+CMakeUserPresets.json
