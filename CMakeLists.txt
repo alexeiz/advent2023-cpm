@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 3.29 FATAL_ERROR)
+cmake_minimum_required (VERSION 3.28 FATAL_ERROR)
 
 project (advent23)
 
@@ -39,6 +39,15 @@ list(APPEND LIBRARIES fmt::fmt)
 CPMAddPackage("gh:tcbrindle/flux#main")
 list(APPEND LIBRARIES flux::flux)
 
+CPMAddPackage(
+  NAME Boost
+  VERSION 1.85.0
+  URL https://github.com/boostorg/boost/releases/download/boost-1.85.0/boost-1.85.0-cmake.tar.gz
+  URL_HASH SHA256=ab9c9c4797384b0949dd676cf86b4f99553f8c148d767485aaac412af25183e6
+  OPTIONS "BOOST_ENABLE_CMAKE ON" "BOOST_INCLUDE_LIBRARIES icl"
+)
+list(APPEND LIBRARIES Boost::icl)
+
 # include directories and source files
 include_directories(include)
 set(SOURCES
@@ -54,4 +63,4 @@ set(SOURCES
 
 # executable
 add_executable(advent23 ${SOURCES})
-target_link_libraries(advent23 ${LIBRARIES})
+target_link_libraries(advent23 PRIVATE ${LIBRARIES})
