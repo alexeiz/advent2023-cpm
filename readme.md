@@ -12,11 +12,10 @@ Assuming the following **CMakeUserPresets.json**:
       "name": "default",
       "generator": "Ninja",
       "binaryDir": "${sourceDir}/build",
+      "toolchainFile": "${sourceDir}/cmake/toolchain-gcc.cmake",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug",
-        "CMAKE_EXPORT_COMPILE_COMMANDS": "TRUE",
-        "CMAKE_C_COMPILER": "gcc",
-        "CMAKE_CXX_COMPILER": "g++"
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "TRUE"
       }
     }
   ],
